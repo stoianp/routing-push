@@ -3,6 +3,7 @@ import { Text, View } from '@/components/Themed';
 import * as Notifications from "expo-notifications";
 import { useEffect, useRef, useState } from 'react';
 import * as Device from "expo-device";
+import { router } from 'expo-router';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -57,11 +58,13 @@ export default function TabOneScreen() {
     registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
     notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      console.log(notification);
       setNotification(notification);
     });
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      //console.log(response);
+      router.push('/(tabs)/two');
+      console.log(response.notification.request.content.data);
     });
 
     return () => {
