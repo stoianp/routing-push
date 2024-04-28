@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "388791865228",
+    "firebase_url": "https://login-test-2c90a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "login-test-2c90a",
+    "storage_bucket": "login-test-2c90a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388791865228:android:6a3f8d181137ea6f3850a9",
+        "android_client_info": {
+          "package_name": "com.firebase.secure.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388791865228-3ofhsiijkjg3rrp5k7866qci0ki93c9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5P5epSl48pGEpjLF3L1mO7dlgVy5K2gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388791865228-3ofhsiijkjg3rrp5k7866qci0ki93c9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
