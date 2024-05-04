@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "routing-push",
+    "name": "firebase_app",
     "slug": "firebase_app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,22 +10,22 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#e4d9fd"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.firebase.secure.app"
+      "bundleIdentifier": "com.firebase.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#e4d9fd"
       },
       "googleServicesFile": "./google-services.json",
-      "package": "com.firebase.secure.app"
+      "package": "com.firebase.app"
     },
     "web": {
       "bundler": "metro",

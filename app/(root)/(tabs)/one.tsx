@@ -63,7 +63,7 @@ export default function TabOneScreen() {
     });
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      router.push('/(tabs)/two');
+      router.push('/(root)/(tabs)/two');
       console.log(response.notification.request.content.data);
     });
 

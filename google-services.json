@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:388791865228:android:6a3f8d181137ea6f3850a9",
         "android_client_info": {
-          "package_name": "com.firebase.secure.app"
+          "package_name": "com.firebase.app"
         }
       },
       "oauth_client": [

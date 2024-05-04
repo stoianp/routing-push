@@ -1,0 +1,70 @@
+{
+    "lang-short": "БГ",
+    "home": {
+        "title": "Начало"
+    },
+    "integrity": {
+        "title": "Непокътнатост",
+        "integrity": "Непокътнатост на приложението:",
+        "attested": "Проверено",
+        "unattested": "Не проверено"
+    },
+   "about": {
+        "title": "Относно",
+        "about": "За приложението:"
+    },
+    "welcome": {
+        "title": "Начален екран",
+        "welcome": "Привет!",
+        "authent": "Влязохте успешно!"
+    },
+    "device-info": {
+        "title": "Устройство",
+        "device-info": "Информация за устройството:"
+    },
+    "crypto": {
+        "title": "Крипто:",
+        "crypto": "Крипто данни:"
+    },
+    "notifications": {
+        "title": "Нотификации:",
+        "button": "Изпращане"
+    },
+    "pin-code": {
+        "title": "ПИН код",
+        "pin-code": "ПИН код:",
+        "new-pin": "Създаване на ПИН", 
+        "hint": "Въведете {{pinLength}} цифри.",
+        "repeat": "Моля, въведете отново.",
+        "back-space": "Изтриване",
+        "error-set": "ПИН кода не съвпада!",
+        "cancel-btn": "Отказ",
+        "reset": "Изтриване на ПИН"
+    },
+    "auth": {
+        "email": "Email адрес",
+        "confirmEmail": "Потвърдете email адреса",
+        "password": "Парола",
+        "confirmPassword": "Потвърдете паролата",
+        "login": {
+            "title": "Влизане в системата",
+            "loginBtn": "Влизане",
+            "signupBtn": "Създаване на нов акаунт",
+            "message": "Влизане..."
+        },
+        "signup": {
+            "title": "Създаване на акаунт",
+            "signupBtn": "Създаване",
+            "loginBtn": "Влизане в системата",
+            "message": "Създаване на акаунт..."
+        },
+        "credentialsAlert": {
+            "title": "Грешка!",
+            "message": "Моля проверете данните."
+        },
+        "authAlert": {
+            "title": "Неуспешно влизане!",
+            "message": "Моля, опитайте по-късно!"
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "lang-short": "ENG",
+    "home": {
+        "title": "Home"
+    },
+    "integrity": {
+        "title": "App integrity",
+        "integrity": "App integrity:",
+        "attested": "Attested",
+        "unattested": "Unattested"
+    },
+    "about": {
+        "title": "About",
+        "about": "About:"
+    },
+    "welcome": {
+        "title": "Main screen",
+        "welcome": "Welcome!!!",
+        "authent": "You authenticated successfully!"
+    },
+    "device-info": {
+        "title": "Device Info",
+        "device-info": "Your device info:"
+    },
+    "crypto": {
+        "title": "Crypto:",
+        "crypto": "Crypto data:"
+    },
+    "notifications": {
+        "title": "Push Notifications:",
+        "button": "Press to Send Notification"
+    },
+    "pin-code": {
+        "title": "PIN Code",
+        "pin-code": "PIN Code:",
+        "new-pin": "Set a new PIN",
+        "hint": "Enter {{pinLength}} digits.", 
+        "repeat": "Please, enter PIN again.",
+        "back-space": "BackSpace",
+        "error-set": "PIN don't match!",
+        "cancel-btn": "Cancel",
+        "reset": "Reset PIN"
+    },
+    "auth": {
+        "email": "Email Address",
+        "confirmEmail": "Confirm Email Address",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "login": {
+            "title": "Login",
+            "loginBtn": "Log In",
+            "signupBtn": "Create a new user",
+            "message": "Logging you in..."
+        },
+        "signup": {
+            "title": "Signup",
+            "signupBtn": "Sign Up",
+            "loginBtn": "Log in instead",
+            "message": "Creating user..."
+        },
+        "credentialsAlert": {
+            "title": "Invalid input",
+            "message": "Please check your entered credentials."
+        },
+        "authAlert": {
+            "title": "Authentication failed!",
+            "message": "Could not log you in. Please check your credentials or try again later!"
+        }
+    }
+}
