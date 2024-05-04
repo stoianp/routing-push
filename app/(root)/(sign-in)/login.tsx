@@ -2,15 +2,17 @@ import { useContext, useState } from 'react';
 import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import AuthContent from '../../../components/auth/AuthContent';
-import LoadingOverlay from '../../../components/ui/LoadingOverlay';
+import LoadingOverlay from '@/components/ui/LoadingOverlay';
+import { useAuth } from '@/providers/AuthProvider';
+import AuthContent from '@/components/auth/AuthContent';
+
 
 export default function LoginScreen() {
   const { t } = useTranslation();
   
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
-  // const authCtx = useContext(AuthContext);
+  const authCtx = useAuth();
 
   async function loginHandler(credentials: { email: string, password: string }) {
     setIsAuthenticating(true);
