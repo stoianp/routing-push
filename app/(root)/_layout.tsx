@@ -36,10 +36,10 @@ export default function AppLayout() {
   }
 
   return (
-    <Stack>
+    <Stack initialRouteName="(sign-in)">
       <Stack.Screen name="(sign-in)" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="nav" options={{ headerShown: false }} />
-      <Stack.Screen name="modal" options={{ presentation: "modal" }} />
     </Stack>
   );
 }

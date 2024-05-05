@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
 import { useAuth } from '@/providers/AuthProvider';
 import AuthContent from '@/components/auth/AuthContent';
+import { router } from 'expo-router';
 
 
 export default function LoginScreen() {
@@ -16,13 +17,14 @@ export default function LoginScreen() {
 
   async function loginHandler(credentials: { email: string, password: string }) {
     setIsAuthenticating(true);
+    
     try {
-      // const data = await login(credentials.email, credentials.password);
-      // authCtx.authenticate(data);
+      const res = authCtx.signIn(credentials.email, credentials.password);
+      router.replace("/(root)/(tabs)/one");
     } catch (error) {
       Alert.alert(t("auth.authAlert.title"), t("auth.authAlert.message"));
-      setIsAuthenticating(false);
     }
+    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {

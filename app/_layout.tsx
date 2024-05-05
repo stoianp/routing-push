@@ -1,10 +1,17 @@
-import { Slot, Stack } from 'expo-router';
-import { AuthProvider } from '@/providers/AuthProvider';
+import { Slot, Stack } from "expo-router";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 function RootLayoutNav() {
   return (
     <AuthProvider>
-      <Slot />
+      <Stack initialRouteName="(sign-in)">
+        <Stack.Screen
+          name="(root)"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
     </AuthProvider>
   );
 }

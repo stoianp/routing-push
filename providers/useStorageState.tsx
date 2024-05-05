@@ -1,6 +1,5 @@
 import * as SecureStore from "expo-secure-store";
 import * as React from "react";
-import { Platform } from "react-native";
 
 type UseStateHook<T> = [[boolean, T | null], (value: T | null) => void];
 

@@ -1,45 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ReactNativeFirebase } from "@react-native-firebase/app";
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+
+//import NativeFirebaseError = ReactNativeFirebase.NativeFirebaseError;
+
 import { useStorageState } from "./useStorageState";
 
+const STORAGE_KEY = "UserAuthData";
+
 export type AuthContextType = {
-  signIn: () => void;
+  signIn: (email: string, password: string) => void;
+  signUp: (email: string, password: string) => void;
   signOut: () => void;
-  session?: string | null;
+  user?: FirebaseAuthTypes.User | null;
   isLoading: boolean;
 };
 
 const AuthContext = React.createContext<AuthContextType>({
   signIn: () => null,
+  signUp: () => null,
   signOut: () => null,
-  session: null,
+  user: null,
   isLoading: false,
 });
 
 export function useAuth() {
   const value = React.useContext(AuthContext);
 
-  if (process.env.NODE_ENV !== "production") {
-    if (!value) {
-      throw new Error("useAuth must be wrapped in a <AuthProvider />");
-    }
-  }
-
   return value;
 }
 
-export function AuthProvider(props: { children: any }) {
-  const [[isLoading, session], setSession] = useStorageState("session");
+export function AuthProvider(props: { children: JSX.Element }): JSX.Element {
+  //const [[isLoading, user], setUser] = useStorageState(STORAGE_KEY);
 
-  const context = {
-    signIn: () => setSession("xxx"),
-    signOut: () => setSession(null),
-    session,
-    isLoading,
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged((user) => {
+      setUser(user);
+      if (isLoading) setIsLoading(false);
+    });
+
+    return subscriber;
+  }, []);
+
+  async function signIn(email: string, password: string) {
+    try {
+      await auth().signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function signUp(email: string, password: string) {
+    console.log("sign up", email, password);
+
+    try {
+      await auth().createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function signOut() {
+    const usr = auth().currentUser;
+    console.log("sign out: ", usr);
+    await auth().signOut();
+  }
+
+  const value: AuthContextType = {
+    signIn: signIn,
+    signUp: signUp,
+    signOut: signOut,
+    user: user,
+    isLoading: isLoading,
   };
 
   return (
-    <AuthContext.Provider value={context}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
   );
 }
