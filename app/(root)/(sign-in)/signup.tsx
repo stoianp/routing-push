@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { router } from 'expo-router';
 
 import { useAuth } from '@/providers/AuthProvider';
 import LoadingOverlay from '@/components/ui/LoadingOverlay';
@@ -17,10 +18,12 @@ export default function SignupScreen() {
     setIsAuthenticating(true);
     try {
       authCtx.signUp(credentials.email, credentials.password);
+      router.replace("/(root)/(tabs)/one");
     } catch (error) {
       Alert.alert(t("auth.authAlert.title"), t("auth.authAlert.message"));
-      setIsAuthenticating(false);
     }
+
+    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {

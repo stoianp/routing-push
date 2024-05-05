@@ -64,8 +64,7 @@ export function AuthProvider(props: { children: JSX.Element }): JSX.Element {
   }
 
   async function signOut() {
-    const usr = auth().currentUser;
-    console.log("sign out: ", usr);
+    console.log("sign out: ");
     await auth().signOut();
   }
 

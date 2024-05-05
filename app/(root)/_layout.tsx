@@ -4,8 +4,10 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
-import "../../translation/i18n";
+import "@/translation/i18n";
 import LoadingOverlay from "@/components/ui/LoadingOverlay";
+import { AuthProvider } from "@/providers/AuthProvider";
+import PushNotificationsProvider from "@/providers/PushNotificationsProvider";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -36,10 +38,14 @@ export default function AppLayout() {
   }
 
   return (
-    <Stack initialRouteName="(sign-in)">
-      <Stack.Screen name="(sign-in)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="nav" options={{ headerShown: false }} />
-    </Stack>
+    <AuthProvider>
+      <PushNotificationsProvider>
+        <Stack initialRouteName="(sign-in)">
+          <Stack.Screen name="(sign-in)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="nav" options={{ headerShown: false }} />
+        </Stack>
+      </PushNotificationsProvider>
+    </AuthProvider>
   );
 }

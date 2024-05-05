@@ -14,7 +14,7 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator}></View>
       <Button onPress={signOutHandler} style={styles.authButton}>
         Sign out!
