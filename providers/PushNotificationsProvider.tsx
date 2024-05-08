@@ -1,13 +1,26 @@
-import messaging, { FirebaseMessagingTypes } from "@react-native-firebase/messaging";
+import messaging, {
+  FirebaseMessagingTypes,
+} from "@react-native-firebase/messaging";
+import { router } from "expo-router";
 import { useEffect } from "react";
-import { Alert, PermissionsAndroid, Platform } from "react-native";
+import { PermissionsAndroid, Platform } from "react-native";
 
-async function onBackgroundMessage(remoteMessage: FirebaseMessagingTypes.RemoteMessage ) {
-    console.log('Message handled in the background!', remoteMessage);
-  }
-  
+async function onBackgroundMessage(
+  remoteMessage: FirebaseMessagingTypes.RemoteMessage
+) {
+  console.log("Message handled in the background!");
+  router.navigate({
+    pathname: "/(root)/(tabs)/message",
+    params: {
+      title: remoteMessage.notification?.title,
+      body: remoteMessage.notification?.body,
+      data: JSON.stringify(remoteMessage?.data?.payload)
+    },
+  });
+}
+
 export function setBackgroundMessageHandler() {
-    messaging().setBackgroundMessageHandler(onBackgroundMessage);
+  messaging().setBackgroundMessageHandler(onBackgroundMessage);
 }
 
 async function requestUserPermission() {
@@ -21,8 +34,16 @@ async function requestUserPermission() {
   }
 }
 
-async function onMessage(remoteMessage: FirebaseMessagingTypes.RemoteMessage ) {
-  Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+async function onMessage(remoteMessage: FirebaseMessagingTypes.RemoteMessage) {
+  //console.log("A new FCM message arrived!", JSON.stringify(remoteMessage));
+  router.navigate({
+    pathname: "/(root)/(tabs)/message",
+    params: {
+      title: remoteMessage.notification?.title,
+      body: remoteMessage.notification?.body,
+      data: JSON.stringify(remoteMessage?.data?.payload)
+    },
+  });
 }
 
 export default function PushNotificationsProvider(props: {
@@ -39,10 +60,15 @@ export default function PushNotificationsProvider(props: {
 
     const unsubscribe = messaging().onMessage(onMessage);
 
-    console.log("FCM token:", messaging().getToken());
+    (async () => {
+      const token = await messaging().getToken();
+      //console.log("FCM token:", token);
+    })();
 
     return unsubscribe;
   }, []);
+
+  setBackgroundMessageHandler();
 
   return props.children;
 }

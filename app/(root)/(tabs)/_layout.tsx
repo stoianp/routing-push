@@ -3,6 +3,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 
 import Colors from "@/constants/Colors";
+import { setBackgroundMessageHandler } from "@/providers/PushNotificationsProvider";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -12,6 +13,7 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
+  
   return (
     <Tabs
       initialRouteName="one"
@@ -27,9 +29,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="message"
         options={{
-          title: "Tab Two",
+          title: "Message tab",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

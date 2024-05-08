@@ -1,14 +1,23 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Alert } from "react-native";
+import messaging from "@react-native-firebase/messaging";
 
 import Button from "@/components/ui/Button";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 
 export default function TabTwoScreen() {
-
+  const params = useLocalSearchParams();
+  const { title, body, data } = params;
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>Message:</Text>
       <View style={styles.separator}></View>
+      <Text>Title: </Text>
+      <Text>{title}</Text>
+      <Text>Body: </Text>
+      <Text>{body}</Text>
+      <Text>Payload: </Text>
+      <Text>{data}</Text>
     </View>
   );
 }
