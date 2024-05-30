@@ -8,9 +8,9 @@ import Input from '../ui/Input';
 export default function AuthForm(props: { isLogin: boolean, onSubmit: any, credentialsInvalid: any }) {
   const { t } = useTranslation();
   
-  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState('test@test.com');
   const [enteredConfirmEmail, setEnteredConfirmEmail] = useState('');
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('qwerty123');
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
   const {

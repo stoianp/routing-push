@@ -1,7 +1,4 @@
 import { StyleSheet, View, Text, Alert } from "react-native";
-import messaging from "@react-native-firebase/messaging";
-
-import Button from "@/components/ui/Button";
 import { router, useLocalSearchParams } from "expo-router";
 
 export default function TabTwoScreen() {
